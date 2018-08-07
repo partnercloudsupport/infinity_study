@@ -1,0 +1,48 @@
+{
+  "name": "Red Queen Hypothesis",
+  "description": "350.0",
+  "questions": [
+    {
+      "question": "Source",
+      "answer": "Alice in wonderland"
+    },
+    {
+      "question": "Theory",
+      "answer": "Alice in wonderland"
+    },
+    {
+      "question": "Reproduction",
+      "answer": "Alice in wonderland"
+    }
+  ],
+  "subTopics": [
+    {
+      "name": "Capricoza",
+      "description": "350.0"
+    },
+    {
+      "name": "Paradajz Corba",
+      "description": "120.0"
+    },
+    {
+      "name": "Karadjordjeva Snicla",
+      "description": "290.0"
+    },
+    {
+      "name": "Burito",
+      "description": "253.2"
+    },
+    {
+      "name": "Hamburger",
+      "description": "400.0"
+    },
+    {
+      "name": "Vocna Torta",
+      "description": "220.0"
+    },
+    {
+      "name": "Test Card",
+      "description": "999.9"
+    }
+  ]
+}
