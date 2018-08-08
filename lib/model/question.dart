@@ -1,4 +1,6 @@
-class Question {
+import 'package:infinity_study/model/card_model.dart';
+
+class Question extends CardModel {
   String question;
   String answer;
 

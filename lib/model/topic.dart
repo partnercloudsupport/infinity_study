@@ -1,6 +1,7 @@
+import 'package:infinity_study/model/card_model.dart';
 import 'package:infinity_study/model/question.dart';
 
-class Topic {
+class Topic extends CardModel {
   String name;
   String description;
   List<Question> questions;
