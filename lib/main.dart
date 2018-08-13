@@ -4,7 +4,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:infinity_study/countdown_timer.dart';
+import 'package:infinity_study/core/quickDismissible.dart';
 import 'package:infinity_study/main_topic.dart';
 import 'package:infinity_study/model/question.dart';
 import 'package:infinity_study/questions_menu.dart';
@@ -36,17 +36,18 @@ class _CoreAppState extends State<CoreApp> with SingleTickerProviderStateMixin {
   Topic root;
   bool dataLoaded = false;
   bool isExpanded = false;
-  bool isQuizMode = false;
-  Stopwatch stopwatch = new Stopwatch();
-  Stopwatch stopwatch2 = new Stopwatch();
 
   Queue previousTopics;
   Topic currentTopic;
   List<Topic> subTopics;
   List<Question> questions;
   double maxAvailableHeight = 500.0;
+  int _counter = 0;
 
   TabController controller;
+
+  Widget topicCard;
+  Queue<Widget> previousTopicsCards;
 
   Future loadMenu() async {
     String jsonString = await rootBundle.loadString('assets/knowledge.json');
@@ -54,21 +55,15 @@ class _CoreAppState extends State<CoreApp> with SingleTickerProviderStateMixin {
     root = new Topic.fromJson(rootTopic);
     previousTopics.add(root);
     drillTopic(root);
+    initializeCard();
   }
 
   @override
   void initState() {
     previousTopics = new Queue();
+    previousTopicsCards = new Queue<Widget>();
     loadMenu();
     controller = new TabController(length: 2, vsync: this);
-    controller.index = 1;
-    controller.animation.addListener(() {
-      if (controller.offset < 0) {
-        controller.index = 1;
-        previousTopics;
-      }
-      setState(() {});
-    });
 
     super.initState();
   }
@@ -85,27 +80,41 @@ class _CoreAppState extends State<CoreApp> with SingleTickerProviderStateMixin {
     }
 
     changeTopic(previousTopics.removeLast());
+    previousTopicsCards.removeLast();
+    initializeCard();
   }
 
   drillTopic(Topic topic) {
     previousTopics.add(currentTopic);
     changeTopic(topic);
+    previousTopicsCards.add(topicCard);
+    initializeCard();
   }
 
   changeTopic(Topic topic) {
     currentTopic = topic;
     subTopics = currentTopic.subTopics;
     questions = currentTopic.questions;
-    setState(() {});
+    //setState(() {});
   }
 
-  double availableHeight() {
-    return isExpanded ? maxAvailableHeight : 0.0;
-  }
+  double availableHeight() => isExpanded ? maxAvailableHeight : 0.0;
 
   double _animatedHeight = 0.0;
   Duration _subMenuDuration = new Duration(milliseconds: 400);
   Curve _curve = Curves.easeInOut;
+
+  void initializeCard() {
+    _counter++;
+    topicCard = MainTopic(
+        child: Container(),
+        currentTopic: currentTopic,
+        navigateBack: currentTopic == root
+            ? null
+            : () => setState(() {
+                  previousTopic();
+                }));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -118,76 +127,22 @@ class _CoreAppState extends State<CoreApp> with SingleTickerProviderStateMixin {
         children: <Widget>[
           Expanded(
             flex: 1,
-            child: MainTopic(
-              currentTopic: currentTopic,
-              navigateBack: currentTopic == root ? null : previousTopic,
-              child: Stack(
-                children: <Widget>[
-                  isQuizMode
-                      ? Align(
-                          alignment: Alignment.topCenter,
-                          child: Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: CountdownTimer(
-                              stopwatch: stopwatch2,
-                              duration: Duration(seconds: 30),
-                            ),
-                          ),
-                        )
-                      : new Container(),
-                  !isQuizMode
-                      ? Align(
-                          alignment: Alignment.topRight,
-                          child: IconButton(
-                            icon: new Icon(
-                              Icons.timer,
-                              color: Color(0x99000000),
-                            ),
-                            onPressed: () {
-                              isQuizMode = true;
-                              stopwatch.start();
-                              stopwatch2.start();
-                              setState(() {});
-                            },
-                          ),
-                        )
-                      : Align(
-                          alignment: Alignment.topRight,
-                          child: IconButton(
-                            icon: new Icon(
-                              Icons.timer_off,
-                              color: Color(0x99000000),
-                            ),
-                            onPressed: () {
-                              isQuizMode = false;
-                              stopwatch.stop();
-                              stopwatch.reset();
-                              stopwatch2.stop();
-                              stopwatch2.reset();
-                              setState(() {});
-                            },
-                          ),
-                        ),
-                  isQuizMode
-                      ? Transform(
-                          transform: Matrix4.translationValues(0.0, 32.0, 0.0),
-                          child: Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Align(
-                              alignment: Alignment.topRight,
-                              child: CountdownTimer(
-                                stopwatch: stopwatch,
-                                duration: Duration(minutes: 10),
-                                textStyle: const TextStyle(
-                                    fontSize: 12.0, color: Color(0x88000000)),
-                              ),
-                            ),
-                          ),
-                        )
-                      : Container(),
-                ],
+            child: Stack(children: [
+              previousTopicsCards.length > 1 ? previousTopicsCards.last : Container(),
+              QuickDismissible(
+                onDismissed: (direction) {
+                  setState(() {
+                    previousTopic();
+                  });
+                },
+                dismissThresholds: root == currentTopic
+                    ? {DismissDirection.startToEnd: 1.1}
+                    : {DismissDirection.startToEnd: 0.4},
+                direction: DismissDirection.startToEnd,
+                key: new ValueKey(_counter),
+                child: topicCard,
               ),
-            ),
+            ]),
           ),
           AnimatedContainer(
             height: _animatedHeight * availableHeight(),
@@ -199,9 +154,12 @@ class _CoreAppState extends State<CoreApp> with SingleTickerProviderStateMixin {
                 Container(
                   color: Color(0xFFFFFFDD),
                   child: SubTopicsMenu(
-                      height: availableHeight(),
-                      topics: subTopics,
-                      callback: drillTopic),
+                    height: availableHeight(),
+                    topics: subTopics,
+                    callback: (index) => setState(() {
+                          drillTopic(index);
+                        }),
+                  ),
                 ),
                 Container(
                   color: Color(0xFFEFF4FF),

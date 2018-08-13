@@ -40,6 +40,7 @@ class _MainTopicState extends State<MainTopic> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    print('${widget.currentTopic.description}');
     return new Container(
       padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 0.0),
       child: GestureDetector(
