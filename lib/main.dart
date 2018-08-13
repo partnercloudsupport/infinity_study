@@ -5,7 +5,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:infinity_study/countdown_timer.dart';
-import 'package:infinity_study/flip_card.dart';
 import 'package:infinity_study/main_topic.dart';
 import 'package:infinity_study/model/question.dart';
 import 'package:infinity_study/questions_menu.dart';
@@ -36,8 +35,7 @@ class CoreApp extends StatefulWidget {
 class _CoreAppState extends State<CoreApp> with SingleTickerProviderStateMixin {
   Topic root;
   bool dataLoaded = false;
-  bool isExpandedTopics = false;
-  bool isExpandedQuestions = false;
+  bool isExpanded = false;
   bool isQuizMode = false;
   Stopwatch stopwatch = new Stopwatch();
   Stopwatch stopwatch2 = new Stopwatch();
@@ -46,7 +44,9 @@ class _CoreAppState extends State<CoreApp> with SingleTickerProviderStateMixin {
   Topic currentTopic;
   List<Topic> subTopics;
   List<Question> questions;
-  double maxAvailableHeight = 300.0;
+  double maxAvailableHeight = 500.0;
+
+  TabController controller;
 
   Future loadMenu() async {
     String jsonString = await rootBundle.loadString('assets/knowledge.json');
@@ -60,7 +60,23 @@ class _CoreAppState extends State<CoreApp> with SingleTickerProviderStateMixin {
   void initState() {
     previousTopics = new Queue();
     loadMenu();
+    controller = new TabController(length: 2, vsync: this);
+    controller.index = 1;
+    controller.animation.addListener(() {
+      if (controller.offset < 0) {
+        controller.index = 1;
+        previousTopics;
+      }
+      setState(() {});
+    });
+
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 
   previousTopic() {
@@ -84,56 +100,27 @@ class _CoreAppState extends State<CoreApp> with SingleTickerProviderStateMixin {
   }
 
   double availableHeight() {
-    if (isExpandedQuestions && isExpandedTopics) {
-      return maxAvailableHeight / 2;
-    } else if ((!isExpandedQuestions && isExpandedTopics) ||
-        (isExpandedQuestions && !isExpandedTopics)) {
-      return maxAvailableHeight;
-    } else {
-      return 0.0;
-    }
+    return isExpanded ? maxAvailableHeight : 0.0;
   }
+
+  double _animatedHeight = 0.0;
+  Duration _subMenuDuration = new Duration(milliseconds: 400);
+  Curve _curve = Curves.easeInOut;
 
   @override
   Widget build(BuildContext context) {
+    if (root == null) {
+      return Container();
+    }
+
     return new Scaffold(
       body: Column(
         children: <Widget>[
-          !isQuizMode
-              ? GestureDetector(
-                  child: FlipCard(
-                    text: "Questions",
-                    color:
-                        isExpandedQuestions ? Color(0x10000000) : Colors.white,
-                    margin: EdgeInsets.all(0.0),
-                    padding: EdgeInsets.symmetric(vertical: 6.0),
-                    align: Alignment.center,
-                  ),
-                  onTap: () {
-                    isExpandedQuestions = !isExpandedQuestions;
-                    setState(() {});
-                  },
-                )
-              : Container(),
-          !isQuizMode
-              ? isExpandedQuestions
-                  ? QuestionsMenu(
-                      height: availableHeight(),
-                      questions: questions,
-                      callback: () {
-                        setState(() {});
-                      })
-                  : Container()
-              : Container(),
           Expanded(
             flex: 1,
             child: MainTopic(
               currentTopic: currentTopic,
               navigateBack: currentTopic == root ? null : previousTopic,
-              flipCard: () {
-                currentTopic.isBack = !currentTopic.isBack;
-                setState(() {});
-              },
               child: Stack(
                 children: <Widget>[
                   isQuizMode
@@ -202,24 +189,101 @@ class _CoreAppState extends State<CoreApp> with SingleTickerProviderStateMixin {
               ),
             ),
           ),
-          isExpandedTopics
-              ? SubTopicsMenu(
-                  height: availableHeight(),
-                  topics: subTopics,
-                  callback: drillTopic)
-              : Container(),
-          GestureDetector(
-            child: FlipCard(
-              text: "Sub Topics",
-              color: isExpandedTopics ? Color(0x10000000) : Colors.white,
-              margin: EdgeInsets.all(0.0),
-              padding: EdgeInsets.symmetric(vertical: 6.0),
-              align: Alignment.center,
+          AnimatedContainer(
+            height: _animatedHeight * availableHeight(),
+            duration: _subMenuDuration,
+            curve: _curve,
+            child: TabBarView(
+              controller: controller,
+              children: <Widget>[
+                Container(
+                  color: Color(0xFFFFFFDD),
+                  child: SubTopicsMenu(
+                      height: availableHeight(),
+                      topics: subTopics,
+                      callback: drillTopic),
+                ),
+                Container(
+                  color: Color(0xFFEFF4FF),
+                  child: QuestionsMenu(
+                      height: availableHeight(),
+                      questions: questions,
+                      callback: () {
+                        setState(() {});
+                      }),
+                ),
+              ],
             ),
-            onTap: () {
-              isExpandedTopics = !isExpandedTopics;
-              setState(() {});
-            },
+          ),
+          Stack(
+            children: [
+              DefaultTabController(
+                length: 2,
+                child: TabBar(
+                  controller: controller,
+                  tabs: [
+                    Container(),
+                    Container(),
+                  ],
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  isExpanded = !isExpanded;
+                  setState(() {
+                    _animatedHeight = isExpanded ? 1.0 : 0.0;
+                  });
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: MediaQuery.of(context).size.width / 2 -
+                          (controller.animation.value - 0.5) * 150,
+                      child: AnimatedContainer(
+                        duration: _subMenuDuration,
+                        curve: _curve,
+                        alignment: Alignment.center,
+                        color: Color.lerp(Color(0xFFFFFFCC), Color(0xFFFFFF33),
+                            _animatedHeight),
+                        child: Padding(
+                          padding: const EdgeInsets.all(6.0),
+                          child: new Text(
+                            "Sub Topics",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width / 2 +
+                          (controller.animation.value - 0.5) * 150,
+                      child: AnimatedContainer(
+                        duration: _subMenuDuration,
+                        curve: _curve,
+                        color: Color.lerp(Color(0xFFDDEEFF), Color(0xFF55AAFF),
+                            _animatedHeight),
+                        alignment: Alignment.center,
+                        child: Padding(
+                          padding: const EdgeInsets.all(6.0),
+                          child: new Text(
+                            "Questions",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ],
       ),
