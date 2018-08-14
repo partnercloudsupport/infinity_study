@@ -7,9 +7,8 @@ import 'package:flutter/services.dart';
 import 'package:infinity_study/core/quickDismissible.dart';
 import 'package:infinity_study/main_topic.dart';
 import 'package:infinity_study/model/question.dart';
-import 'package:infinity_study/questions_menu.dart';
 import 'package:infinity_study/model/topic.dart';
-import 'package:infinity_study/subtopics_menu.dart';
+import 'package:infinity_study/sub_menu.dart';
 
 void main() {
   runApp(new MaterialApp(
@@ -32,10 +31,9 @@ class CoreApp extends StatefulWidget {
   _CoreAppState createState() => new _CoreAppState();
 }
 
-class _CoreAppState extends State<CoreApp> with SingleTickerProviderStateMixin {
+class _CoreAppState extends State<CoreApp> {
   Topic root;
   bool dataLoaded = false;
-  bool isExpanded = false;
 
   Queue previousTopics;
   Topic currentTopic;
@@ -44,69 +42,65 @@ class _CoreAppState extends State<CoreApp> with SingleTickerProviderStateMixin {
   double maxAvailableHeight = 500.0;
   int _counter = 0;
 
-  TabController controller;
 
   Widget topicCard;
-  Queue<Widget> previousTopicsCards;
+  Widget previousCard;
 
   Future loadMenu() async {
     String jsonString = await rootBundle.loadString('assets/knowledge.json');
     var rootTopic = json.decode(jsonString);
     root = new Topic.fromJson(rootTopic);
-    previousTopics.add(root);
     drillTopic(root);
-    initializeCard();
   }
 
   @override
   void initState() {
     previousTopics = new Queue();
-    previousTopicsCards = new Queue<Widget>();
+    previousCard = new Container();
     loadMenu();
-    controller = new TabController(length: 2, vsync: this);
 
     super.initState();
   }
 
   @override
   void dispose() {
-    controller.dispose();
     super.dispose();
   }
 
   previousTopic() {
     if (currentTopic == root) {
+      topicCard = Container();
+      previousCard = Container();
       return;
     }
 
     changeTopic(previousTopics.removeLast());
-    previousTopicsCards.removeLast();
-    initializeCard();
+    previousCard =
+        previousTopics.isEmpty ? Container() : changeCard(previousTopics.last);
+    topicCard = changeCard(currentTopic);
   }
 
   drillTopic(Topic topic) {
-    previousTopics.add(currentTopic);
+    if (currentTopic != null) {
+      previousTopics.add(currentTopic);
+    }
+
+    previousCard =
+        previousTopics.isEmpty ? Container() : changeCard(previousTopics.last);
     changeTopic(topic);
-    previousTopicsCards.add(topicCard);
-    initializeCard();
+    topicCard = changeCard(currentTopic);
   }
 
   changeTopic(Topic topic) {
     currentTopic = topic;
     subTopics = currentTopic.subTopics;
     questions = currentTopic.questions;
-    //setState(() {});
+    setState(() {});
   }
 
-  double availableHeight() => isExpanded ? maxAvailableHeight : 0.0;
-
-  double _animatedHeight = 0.0;
-  Duration _subMenuDuration = new Duration(milliseconds: 400);
-  Curve _curve = Curves.easeInOut;
-
-  void initializeCard() {
+  MainTopic changeCard(Topic currentTopic) {
     _counter++;
-    topicCard = MainTopic(
+    return MainTopic(
         child: Container(),
         currentTopic: currentTopic,
         navigateBack: currentTopic == root
@@ -128,7 +122,7 @@ class _CoreAppState extends State<CoreApp> with SingleTickerProviderStateMixin {
           Expanded(
             flex: 1,
             child: Stack(children: [
-              previousTopicsCards.length > 1 ? previousTopicsCards.last : Container(),
+              previousTopics.isNotEmpty ? previousCard : Container(),
               QuickDismissible(
                 onDismissed: (direction) {
                   setState(() {
@@ -144,104 +138,11 @@ class _CoreAppState extends State<CoreApp> with SingleTickerProviderStateMixin {
               ),
             ]),
           ),
-          AnimatedContainer(
-            height: _animatedHeight * availableHeight(),
-            duration: _subMenuDuration,
-            curve: _curve,
-            child: TabBarView(
-              controller: controller,
-              children: <Widget>[
-                Container(
-                  color: Color(0xFFFFFFDD),
-                  child: SubTopicsMenu(
-                    height: availableHeight(),
-                    topics: subTopics,
-                    callback: (index) => setState(() {
-                          drillTopic(index);
-                        }),
-                  ),
-                ),
-                Container(
-                  color: Color(0xFFEFF4FF),
-                  child: QuestionsMenu(
-                      height: availableHeight(),
-                      questions: questions,
-                      callback: () {
-                        setState(() {});
-                      }),
-                ),
-              ],
-            ),
-          ),
-          Stack(
-            children: [
-              DefaultTabController(
-                length: 2,
-                child: TabBar(
-                  controller: controller,
-                  tabs: [
-                    Container(),
-                    Container(),
-                  ],
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  isExpanded = !isExpanded;
-                  setState(() {
-                    _animatedHeight = isExpanded ? 1.0 : 0.0;
-                  });
-                },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width / 2 -
-                          (controller.animation.value - 0.5) * 150,
-                      child: AnimatedContainer(
-                        duration: _subMenuDuration,
-                        curve: _curve,
-                        alignment: Alignment.center,
-                        color: Color.lerp(Color(0xFFFFFFCC), Color(0xFFFFFF33),
-                            _animatedHeight),
-                        child: Padding(
-                          padding: const EdgeInsets.all(6.0),
-                          child: new Text(
-                            "Sub Topics",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16.0,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: MediaQuery.of(context).size.width / 2 +
-                          (controller.animation.value - 0.5) * 150,
-                      child: AnimatedContainer(
-                        duration: _subMenuDuration,
-                        curve: _curve,
-                        color: Color.lerp(Color(0xFFDDEEFF), Color(0xFF55AAFF),
-                            _animatedHeight),
-                        alignment: Alignment.center,
-                        child: Padding(
-                          padding: const EdgeInsets.all(6.0),
-                          child: new Text(
-                            "Questions",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16.0,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+          SubMenu(
+            questions: questions,
+            subTopics: subTopics,
+            maxAvailableHeight: maxAvailableHeight,
+            navigateDown: drillTopic,
           ),
         ],
       ),
