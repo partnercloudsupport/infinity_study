@@ -120,6 +120,128 @@
               "name": "Edge Location",
               "description": "Endpoints for Caching content"
             }
+          ],
+          "questions": [
+            {
+              "question": "An AWS VPC is a component of which group of AWS services?",
+              "answer": "Networking Services. A Virtual Private Cloud (VPC) is a virtual network dedicated to a single AWS account. It is logically isolated from other virtual networks in the AWS cloud, providing compute resources with security and robust networking functionality."
+            },
+            {
+              "question": "You need to monitor the performance of your EC2 instances (including metrics such as CPU Utilization, Disk IO, etc.) Which service would best meet this requirement?",
+              "answer": "CloudWatch. CloudTrail logs who asked for what in the API, and CloudWatch tracks metrics and related performance events."
+            },
+            {
+              "question": "Which statement best describes Availability Zones?",
+              "answer": "Distinct locations from within an AWS region that are engineered to be isolated from failures."
+            },
+            {
+              "question": "What is an Amazon VPC?",
+              "answer": "VPC stands for Virtual Private Cloud."
+            },
+            {
+              "question": "Which AWS service is used for collating large amounts of data streamed from multiple sources?",
+              "answer": "Amazon Kinesis is used to collect, process, and analyze real-time, streaming data."
+            },
+            {
+              "question": "Your company is interested in implementing a VDI solution to replace their local desktop environment. Which AWS service should you consider?",
+              "answer": "Amazon WorkSpaces is a fully managed, secure Desktop-as-a-Service (DaaS) solution that runs on AWS."
+            },
+            {
+              "question": "Which AWS service offers durable storage for flat files?",
+              "answer": "S3 is object storage built to store and retrieve any amount of data from anywhere – web sites and mobile apps, corporate applications, and data from IoT sensors or devices."
+            },
+            {
+              "question": "Which AWS service allows you to run code without having to worry about provisioning any underlying resources (such as virtual machines, databases etc.)",
+              "answer": "Lambda is the AWS Function-as-a-Service (FaaS) offering that lets you run code without provisioning or managing servers."
+            },
+            {
+              "question": "Which of the following services connects an on-premise software appliance (or virtual machine) with cloud based storage?",
+              "answer": "AWS Storage Gateway is a hybrid storage service that enables your on-premises applications to seamlessly use storage in the AWS Cloud."
+            },
+            {
+              "question": "Your digital media agency needs to convert its media files to formats that can be viewed on a variety of devices. Which AWS service should you use to meet this need?",
+              "answer": "Elastic Transcoder"
+            },
+            {
+              "question": "Which AWS service is effectively a NAS in the cloud, allowing you to connect it to multiple EC2 instances at once?",
+              "answer": "Amazon EFS (Elastic File System) provides simple, scalable file storage for use with Amazon EC2 instances."
+            },
+            {
+              "question": "Amazon's highly scalable DNS service is known as ________.",
+              "answer": "Route53 is AWS' DNS service. The name is a portmanteau of Route 66, an American highway, and 53, the port used for DNS."
+            },
+            {
+              "question": "You need to add new users to your AWS account and set password rotation policies for these new users. Which AWS service should you use to do so?",
+              "answer": "Identity Access Management (IAM)"
+            },
+            {
+              "question": "Which AWS service is a Content Delivery Network?",
+              "answer": "CloudFront is AWS' content delivery network."
+            },
+            {
+              "question": "What is the fundamental difference between Elastic Beanstalk & CloudFormation?",
+              "answer": "Elastic Beanstalk automatically handles the deployment of your code -- from capacity provisioning, load balancing, auto-scaling to application health monitoring -- based on the code you upload to it, whereas CloudFormation is an automated provisioning engine designed to deploy entire cloud environments via a JSON script."
+            },
+            {
+              "question": "You need to supply auditors with logs showing which Users provisioned given resources on your AWS infrastructure. Which service would best satisfy this need?",
+              "answer": "AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account."
+            },
+            {
+              "question": "Which of the following is a petabyte-scale data transfer solution?",
+              "answer": "Snowball is a petabyte-scale data transport solution that uses secure appliances to transfer large amounts of data into and out of the AWS cloud."
+            },
+            {
+              "question": "What does an AWS Region consist of?",
+              "answer": "A distinct location within a geographic area designed to provide high availability to a specific geography. Each region is a separate geographic area. Each region has multiple, isolated locations known as Availability Zones."
+            },
+            {
+              "question": "Which of the following is Amazon's No-SQL database service?",
+              "answer": "DynamoDB is AWS' No-SQL database service."
+            },
+            {
+              "question": "Which AWS service is specifically designed to automatically provision the resources required to host the code a developer uploads during the Development process?",
+              "answer": "Elastic Beanstalk"
+            },
+            {
+              "question": "Which AWS service is specifically designed to assist you in processing large data sets?",
+              "answer": "Amazon EMR is a web service that makes it easy to process large amounts of data efficiently."
+            },
+            {
+              "question": "Which AWS service would be the best choice for long term data archival?",
+              "answer": "Glacier"
+            },
+            {
+              "question": "What AWS service would you use primarily for data warehousing?",
+              "answer": "Redshift"
+            },
+            {
+              "question": "What is an AWS region?",
+              "answer": "A region is a geographical area divided into Availability Zones. Each region contains at least two Availability Zones."
+            },
+            {
+              "question": "Your system administrators need to receive notification of specified events affecting your AWS environment (such as alarms, etc.) Which service should you enable?",
+              "answer": "SNS"
+            },
+            {
+              "question": "You need a service that will aggregate your data from multiple data sources (S3, DynamoDB, RDS, etc.) and provide business intelligence based on this data. Which AWS service should you use?",
+              "answer": "Amazon QuickSight is a fast, cloud-powered business analytics service that makes it easy to build visualizations, perform ad-hoc analysis, and quickly get business insights from your data."
+            },
+            {
+              "question": "Which database service would you use to migrate a database from Oracle to MySQL?",
+              "answer": "AWS Database Migration Service (DMS) can migrate your data to and from most widely used commercial and open-source databases such as Oracle, PostgreSQL, Microsoft SQL Server, Amazon Redshift, Amazon Aurora, Amazon DynamoDB, Amazon S3, MariaDB, and MySQL."
+            },
+            {
+              "question": "Which AWS service offers the following database engines: SQL, MySQL, MariaDB, PostgreSQL, Aurora, and Oracle?",
+              "answer": "Amazon RDS offer those database engines as a managed service."
+            },
+            {
+              "question": "You need a configuration management service that will allow your system administrators to use Chef to configure and operate your web applications. Which AWS service would best suit your needs?",
+              "answer": "AWS OpsWorks is a configuration management service that uses Chef, an automation platform that treats server configurations as code."
+            },
+            {
+              "question": "You need to implement an automated service that will scan your AWS environment with the goal of both improving security and reducing costs. Which service should you use?",
+              "answer": "Trusted Advisor"
+            }
           ]
         },
         {
@@ -128,27 +250,27 @@
           "subTopics": [
             {
               "name": "EC2",
-              "description": "Elastic Compute Cloud, VM in AWS. First service created."
+              "description": "Elastic Compute Cloud, VM in AWS. First service created. Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides secure, resizable compute capacity in the cloud. It is designed to make web-scale computing easier for developers."
             },
             {
               "name": "Lightsail",
-              "description": "Virtual Private Service. Provisions you with a server. You don’t need to manage security. Watered down version of EC2."
+              "description": "Virtual Private Service. Provisions you with a server. You don’t need to manage security. Watered down version of EC2. Amazon Lightsail is designed to be the easiest way to launch and manage a virtual private server with AWS. Lightsail plans include everything you need to jumpstart your project – a virtual machine, SSD-based storage, data transfer, DNS management, and a static IP address – for a low, predictable price."
             },
             {
               "name": "Elastic Container Service",
-              "description": "Manage docker containers"
+              "description": "Amazon EC2 Container Service (ECS) is a highly scalable, high-performance container management service that supports Docker containers. It allows you to easily run applications on a managed cluster of Amazon EC2 instances. Amazon ECS eliminates the need for you to install, operate, and scale your own cluster management infrastructure. With simple API calls, you can launch and stop Docker-enabled applications, query the complete state of your cluster, and access many familiar features like security groups, Elastic Load Balancing, Amazon Elastic Block Store (Amazon EBS) volumes, and AWS Identity and Access Management (IAM) roles. You can use Amazon ECS to schedule the placement of containers across your cluster based on your resource needs and availability requirements. You can also integrate your own scheduler or third-party schedulers to meet business- or application-specific requirements."
             },
             {
               "name": "Lambda",
-              "description": "Code that you upload and executes in the cloud. Nothing to manage."
+              "description": "AWS Lambda lets you run code without provisioning or managing servers. You pay only for the compute time you consume—there is no charge when your code is not running. With Lambda, you can run code for virtually any type of application or backend service—all with zero administration. Just upload your code, and Lambda takes care of everything required to run and scale your code with high availability. You can set up your code to automatically trigger from other AWS services, or you can call it directly from any web or mobile app."
             },
             {
               "name": "Batch",
-              "description": "Batch computing."
+              "description": "AWS Batch enables developers, scientists, and engineers to easily and efficiently run hundreds of thousands of batch computing jobs on AWS. AWS Batch dynamically provisions the optimal quantity and type of compute resources (e.g., CPU or memory-optimized instances) based on the volume and specific resource requirements of the batch jobs submitted. With AWS Batch, there is no need to install and manage batch computing software or server clusters that you use to run your jobs, allowing you to focus on analyzing results and solving problems. AWS Batch plans, schedules, and executes your batch computing workloads across the full range of AWS compute services and features, such as Amazon EC2 and Spot Instances."
             },
             {
               "name": "Elastic Beanstalk",
-              "description": "Upload code. Auto scaling, load balancing."
+              "description": "AWS Elastic Beanstalk is an easy-to-use service for deploying and scaling web applications and services developed with Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker on familiar servers such as Apache, Nginx, Passenger, and Internet Information Services (IIS). You can simply upload your code, and AWS Elastic Beanstalk automatically handles the deployment, from capacity provisioning, load balancing, and auto scaling to application health monitoring. At the same time, you retain full control over the AWS resources powering your application and can access the underlying resources at any time."
             }
           ]
         },
@@ -448,7 +570,165 @@
           "subTopics": [
             {
               "name": "IAM",
-              "description": "Identity Access Management."
+              "description": "Identity Access Management. Allows you to manage users and their access to the AWS console. IAM is global and not region specific.",
+              "subTopics": [
+                {
+                  "name": "Core functions",
+                  "description": "",
+                  "subTopics": [
+                    {
+                      "name": "Centralized control of your AWS account",
+                      "description": ""
+                    },
+                    {
+                      "name": "Shared Access to your AWS account",
+                      "description": ""
+                    },
+                    {
+                      "name": "Granular Permissions",
+                      "description": ""
+                    },
+                    {
+                      "name": "Identity Federation (including Active Directory, Facebook, Linkedin etc)",
+                      "description": ""
+                    },
+                    {
+                      "name": "Multifactor Authentication",
+                      "description": ""
+                    },
+                    {
+                      "name": "Provide temporary access for users/devices and services where necessary",
+                      "description": ""
+                    },
+                    {
+                      "name": "Allows you to set up your own password rotation policy",
+                      "description": ""
+                    },
+                    {
+                      "name": "Integrates with many different AWS services",
+                      "description": ""
+                    },
+                    {
+                      "name": "Supports PCI DSS Compliance",
+                      "description": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "Terms",
+                  "description": "",
+                  "subTopics": [
+                    {
+                      "name": "User",
+                      "description": "End Users. Have no access when created."
+                    },
+                    {
+                      "name": "Groups",
+                      "description": "A collection of users under one set of permissions."
+                    },
+                    {
+                      "name": "Roles",
+                      "description": "You create roles and can then assign them to AWS resources. Grant permission to entities you trust."
+                    },
+                    {
+                      "name": "Policies",
+                      "description": "A document that defines one or more permissions. Can be attached to users groups or roles. The same policy can be shared across these."
+                    }
+                  ]
+                },
+                {
+                  "name": "Access Types",
+                  "description": "",
+                  "subTopics": [
+                    {
+                      "name": "Management Console",
+                      "description": "Username and Password"
+                    },
+                    {
+                      "name": "Programmatic access",
+                      "description": "Access key Id and Secret access key"
+                    }
+                  ]
+                },
+                {
+                  "name": "Root Account",
+                  "description": "email address used to sign in with AWS. Has complete admin access by default. "
+                }
+              ],
+              "questions": [
+                {
+                  "question": "Which of the following is not a feature of IAM?",
+                  "answer": "IAM allows you to setup biometric authentication, so that no passwords are required."
+                },
+                {
+                  "question": "To save administration headaches, Amazon recommends that you leave all security groups in web facing subnets open on port 22 to 0.0.0.0/0 CIDR. That way, you can connect wherever you are in the world.",
+                  "answer": "False."
+                },
+                {
+                  "question": "Every user you create in the IAM systems starts with ________.",
+                  "answer": "No Permissions"},
+                {
+                  "question": "You have created a new AWS account for your company, and you have also configured multi-factor authentication on the root account. You are about to create your new users. What strategy should you consider in order to ensure that there is good security on this account.",
+                  "answer": "Enact a strong password policy: user passwords must be changed every 45 days, with each password containing a combination of capital letters, lower case letters, numbers, and special symbols."
+                },
+                {
+                  "question": "Which of the following is not a component of IAM?",
+                  "answer": "Organizational Units"
+                },
+                {
+                  "question": "What level of access does the \"root\" account have?",
+                  "answer": "Administrator Access"},
+                {
+                  "question": "What is the default level of access a newly created IAM User is granted?",
+                  "answer": "No access to any AWS services."},
+                {
+                  "question": "You are a developer at a fast growing start up. Until now, you have used the root account to log in to the AWS console. However, as you have taken on more staff, you will now need to stop sharing the root account to prevent accidental damage to your AWS infrastructure. What should you do so that everyone can access the AWS resources they need to do their jobs?",
+                  "answer": "Create a customized sign in link such as \"yourcompany.signin.aws.amazon.com/console\" for your new users to use to sign in with. Create individual user accounts with minimum necessary rights and tell the staff to log in to the console using the credentials provided."
+                },
+                {
+                  "question": "Which statement best describes IAM?",
+                  "answer": "IAM allows you to manage users, groups, roles, and their corresponding level of access to the AWS Platform."},
+                {
+                  "question": "What is an additional way to secure the AWS accounts of both the root account and new users alike?",
+                  "answer": "Implement Multi-Factor Authentication for all accounts."
+                },
+                {
+                  "question": "A __________ is a document that provides a formal statement of one or more permissions.",
+                  "answer": "Policy"
+                },
+                {
+                  "question": "You are a security administrator working for a hotel chain. You have a new member of staff who has started as a systems administrator, and she will need full access to the AWS console. You have created the user account and generated the access key id and the secret access key. You have moved this user into the group where the other administrators are, and you have provided the new user with their secret access key and their access key id. However, when she tries to log in to the AWS console, she cannot. Why might that be?",
+                  "answer": "You cannot log in to the AWS console using the Access Key ID / Secret Access Key pair. Instead, you must generate a password for the user, and supply the user with this password and your organization's unique AWS console login URL."
+                },
+                {
+                  "question": "In what language are policy documents written?",
+                  "answer": "JSON"
+                },
+                {
+                  "question": "You have a client who is considering a move to AWS. In establishing a new account, what is the first thing the company should do?",
+                  "answer": "Set up an account using their company email address."
+                },
+                {
+                  "question": "A new employee has just started work, and it is your job to give her administrator access to the AWS console. You have given her a user name, an access key ID, a secret access key, and you have generated a password for her. She is now able to log in to the AWS console, but she is unable to interact with any AWS services. What should you do next?",
+                  "answer": "Grant her Administrator access by adding her to the Administrators' group."
+                },
+                {
+                  "question": "You are a solutions architect working for a large engineering company who are moving from a legacy infrastructure to AWS. You have configured the company's first AWS account and you have set up IAM. Your company is based in Andorra, but there will be a small subsidiary operating out of South Korea, so that office will need its own AWS environment. Which of the following statements is true?",
+                  "answer": "You will need to configure Users and Policy Documents only once, as these are applied globally."
+                },
+                {
+                  "question": "When you create a new user, that user ________.",
+                  "answer": "Will be able to interact with AWS using their access key ID and secret access key using the API, CLI, or the AWS SDKs. To access the console you use an account and password combination. To access AWS pragmatically you use a Key and Secret Key combination."
+                },
+                {
+                  "question": "Power User Access allows ________.",
+                  "answer": "Access to all AWS services except the management of groups and users within IAM."
+                },
+                {
+                  "question": "Using SAML (Security Assertion Markup Language 2.0), you can give your federated users single sign-on (SSO) access to the AWS Management Console.",
+                  "answer": "True"
+                }
+              ]
             },
             {
               "name": "Cognito",
@@ -578,15 +858,15 @@
             },
             {
               "name": "Chime",
-              "description": "Google hangouts. Video conferencing, with recording."
+              "description": "Google hangouts. Video conferencing, with recording. Amazon Chime is a communications service that transforms online meetings with a secure, easy-to-use application that you can trust. Amazon Chime works seamlessly across your devices so that you can stay connected. You can use Amazon Chime for online meetings, video conferencing, calls, chat, and to share content, both inside and outside your organization. Amazon Chime frees you to work productively from anywhere."
             },
             {
               "name": "Work Docs",
-              "description": "Dropbox for AWS."
+              "description": "Dropbox for AWS. Amazon WorkDocs is a fully managed, secure enterprise storage and sharing service with strong administrative controls and feedback capabilities that improve user productivity. Users can comment on files, send them to others for feedback, and upload new versions without having to resort to emailing multiple versions of their files as attachments. Users can take advantage of these capabilities wherever they are, using the device of their choice, including PCs, Macs, tablets, and phones. Amazon WorkDocs offers IT administrators the option of integrating with existing corporate directories, flexible sharing policies and control of the location where data is stored. You can get started using Amazon WorkDocs with a 30-day free trial providing 1 TB of storage per user for up to 50 users."
             },
             {
               "name": "WorkMail",
-              "description": "Office 365."
+              "description": "Office 365. Amazon WorkMail is a secure, managed business email and calendar service with support for existing desktop and mobile email client applications. Amazon WorkMail gives users the ability to seamlessly access their email, contacts, and calendars using the client application of their choice, including Microsoft Outlook, native iOS and Android email applications, any client application supporting the IMAP protocol, or directly through a web browser. You can integrate Amazon WorkMail with your existing corporate directory, use email journaling to meet compliance requirements, and control both the keys that encrypt your data and the location in which your data is stored. You can also set up interoperability with Microsoft Exchange Server, making it easy to start using Amazon WorkMail."
             }
           ]
         },
@@ -596,11 +876,11 @@
           "subTopics": [
             {
               "name": "Workspaces",
-              "description": "VDI Virual Desktop Infrastructure solution. Stream OS."
+              "description": "VDI Virual Desktop Infrastructure solution. Stream OS. Amazon WorkSpaces is a fully managed, secure desktop computing service that runs on the AWS Cloud. Amazon WorkSpaces allows you to easily provision cloud-based virtual desktops and provide your users access to the documents, applications, and resources they need from any supported device, including Windows and Mac computers, Chromebooks, iPads, Fire tablets, Android tablets, and Chrome and Firefox web browsers. With just a few clicks in the AWS Management Console, you can deploy high-quality cloud desktops for any number of users. With Amazon WorkSpaces, you pay either monthly or hourly just for the Amazon WorkSpaces you launch, which helps you save money when compared to traditional desktops and on-premises virtual desktop infrastructure (VDI) solutions."
             },
             {
               "name": "AppStream 2.0",
-              "description": "Application is running in the environment but it is being streamed to your environment. Like Citrix."
+              "description": "Application is running in the environment but it is being streamed to your environment. Like Citrix. Amazon AppStream 2.0 is a fully managed, secure application streaming service that allows you to stream desktop applications from AWS to any device running a web browser, without rewriting them. Amazon AppStream 2.0 provides you instant-on access to the applications you need, and a responsive, fluid user experience on the device of your choice. Users today want access to their applications from anywhere, using their preferred device. To support this, organizations need to maintain multiple versions of their desktop applications, and take additional measures to secure applications and data. While browser-based applications solve device compatibility and security problems for IT, the reality is that organizations still have many traditional desktop applications that need to be supported. Organizations face a choice: either rewrite their applications to run natively in browsers, which is time consuming and expensive, or continue to maintain and support a complex catalog of desktop applications. Amazon AppStream 2.0 gives you the benefits of native browser applications without the need to rewrite them. With Amazon AppStream 2.0, you can easily import your existing desktop applications to AWS and instantly start streaming them to an HTML5-compatible browser. You can maintain a single version of each of your apps, which makes application management easier. Your users always access the latest versions of their applications. Your applications run on AWS compute resources, and data is never stored on users’ devices, which means they always get a high-performance, secure experience. Unlike traditional on-premises solutions for desktop application streaming, Amazon AppStream 2.0 offers pay-as-you-go pricing, with no upfront investment and no infrastructure to maintain. You can scale instantly and globally, ensuring that your users always have the best possible experience."
             }
           ]
         },
@@ -609,11 +889,11 @@
           "description": "",
           "subTopics": [
             {
-              "name": "iOT",
+              "name": "IoT Core",
               "description": "Core internet of things service."
             },
             {
-              "name": "iOT Device Management",
+              "name": "IoT Device Management",
               "description": "Manages large numbers of devices."
             },
             {
@@ -622,7 +902,7 @@
             },
             {
               "name": "Greengrass",
-              "description": "Software that runs local compute, data caching and machine learning."
+              "description": "AWS Greengrass is software that lets you run local compute, messaging, and data caching for connected devices in a secure way. With AWS Greengrass, connected devices can run AWS Lambda functions, keep device data in sync, and communicate with other devices securely – even when not connected to the Internet. Using AWS Lambda, Greengrass ensures your IoT devices can respond quickly to local events, operate with intermittent connections, and minimize the cost of transmitting IoT data to the cloud. AWS Greengrass seamlessly extends AWS to devices so they can act locally on the data they generate, while still using the cloud for management, analytics, and durable storage. With AWS Greengrass, you can use familiar languages and programming models to create and test your device software in the cloud, and then deploy it to your devices. AWS Greengrass can be programmed to filter device data and only transmit necessary information back to the cloud. AWS Greengrass authenticates and encrypts device data at all points of connection using the AWS IoT security and access management capabilities. This way data is never exchanged between devices when they communicate with each other and the cloud without proven identity."
             }
           ]
         },
@@ -631,20 +911,16 @@
           "description": "",
           "subTopics": [
             {
-              "name": "GameLift",
-              "description": "Service for development of games."
+              "name": "Amazon GameLift",
+              "description": "Amazon GameLift is a managed service for deploying, operating, and scaling dedicated game servers for session-based multiplayer games. Amazon GameLift makes it easy to manage server infrastructure, scale capacity to lower latency and cost, match players into available game sessions, and defend from distributed denial-of-service (DDoS) attacks. You pay for the compute resources and bandwidth your games actually use, without monthly or annual contracts."
+            },
+            {
+              "name": "Amazon Lumberyard",
+              "description": "Amazon Lumberyard is a free, cross-platform, 3D game engine for you to create the highest-quality games, connect your games to the vast compute and storage of the AWS Cloud, and engage fans on Twitch. By starting game projects with Lumberyard, you can spend more of your time creating great gameplay and building communities of fans, and less time on the undifferentiated heavy lifting of building a game engine and managing server infrastructure."
             }
           ]
         }
       ]
-    },
-    {
-      "name": "Paradajz Corba",
-      "description": "120.0"
-    },
-    {
-      "name": "Burito",
-      "description": "253.2"
     }
   ]
 }
