@@ -17,6 +17,58 @@
   ],
   "subTopics": [
     {
+      "name": "Flutter",
+      "description": "Flutter",
+      "subTopics": [
+        {
+          "name": "Soundness",
+          "description": "Soundness is about ensuring your program can’t get into certain invalid states. A sound type system means you can never get into a state where an expression evaluates to a value that doesn’t match the expression’s static type. For example, if an expression’s static type is String, at runtime you are guaranteed to only get a string when you evaluate it. Dart’s type system, like the type systems in Java and C#, is sound. It enforces that soundness using a combination of static checking (compile-time errors) and runtime checks. For example, assigning a String to int is a compile-time error. Casting an Object to a string using as String fails with a runtime error if the object isn’t a string.",
+          "subTopics": [
+            {
+              "name": "The benefits of soundness",
+              "description": "A sound type system has several benefits.",
+              "subTopics": [
+                {
+                  "name": "Revealing type-related bugs at compile time.",
+                  "description": "A sound type system forces code to be unambiguous about its types, so type-related bugs that might be tricky to find at runtime are revealed at compile time."
+                },
+                {
+                  "name": "More readable code.",
+                  "description": "Code is easier to read because you can rely on a value actually having the specified type. In sound Dart, types can’t lie."
+                },
+                {
+                  "name": "More maintainable code.",
+                  "description": "With a sound type system, when you change one piece of code, the type system can warn you about the other pieces of code that just broke."
+                },
+                {
+                  "name": "Better ahead of time (AOT) compilation.",
+                  "description": "While AOT compilation is possible without types, the generated code is much less efficient."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Hot Reload",
+          "description": "Flutter’s hot reload feature helps you quickly and easily experiment, build UIs, add features, and fix bugs. Hot reload works by injecting updated source code files into the running Dart Virtual Machine (VM). After the VM updates classes with the new versions of fields and functions, the Flutter framework automatically rebuilds the widget tree, allowing you to quickly view the effects of your changes.",
+          "subTopics": [
+                {
+                  "name": "Previous state is combined with new code",
+                  "description": "Flutter’s hot reload feature, sometimes described as stateful hot reload, preserves the state of your app. This design enables you to view the effect of the most recent change only, without throwing away the current state. For example, if your app requires a user to log in, you can modify and hot reload a page several levels down in the navigation hierarchy, without re-entering your login credentials. State is kept, which is usually the desired behavior. If code changes affect the state of your app (or its dependencies), the data your app has to work with might not be fully consistent with the data it would have if it executed from scratch. The result might be different behavior after hot reload versus a hot restart. For example, if you modify a class definition from extending StatelessWidget to StatefulWidget (or the reverse), after hot reload the previous state of your app is preserved. However, the state might not be compatible with the new changes."
+                },
+                {
+                  "name": "Recent code change is included but app state is excluded",
+                  "description": "In Dart, static fields are lazily initialized. This means that the first time you run a Flutter app and a static field is read, it is set to whatever value its initializer was evaluated to. Global variables and static fields are treated as state, and thus not reinitialized during hot reload. If you change initializers of global variables and static fields, a full restart is necessary to see the changes."
+                },
+                {
+                  "name": "How it works",
+                  "description": "When hot reload is invoked, the host machine looks at the edited code since the last compilation. The following libraries are recompiled: Any libraries with changed code. The application’s main library. The libraries from the main library leading to affected libraries. In Dart 2, those libraries’ Dart source code are turned into kernel files and sent to the mobile device’s Dart VM. The Dart VM re-loads all libraries from the new kernel file. So far no code is re-executed. The hot reload mechanism then causes the Flutter framework to trigger a rebuild/re-layout/repaint of all existing widgets and render objects."
+                }
+          ]
+        }
+      ]
+    },
+    {
       "name": "C#",
       "description": "C# Programming language",
       "questions": [
@@ -53,24 +105,8 @@
       "description": "120.0"
     },
     {
-      "name": "Karadjordjeva Snicla",
-      "description": "290.0"
-    },
-    {
       "name": "Burito",
       "description": "253.2"
-    },
-    {
-      "name": "Hamburger",
-      "description": "400.0"
-    },
-    {
-      "name": "Vocna Torta",
-      "description": "220.0"
-    },
-    {
-      "name": "Test Card",
-      "description": "999.9"
     }
   ]
 }
