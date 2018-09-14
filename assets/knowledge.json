@@ -101,6 +101,544 @@
       ]
     },
     {
+      "name": "AWS",
+      "description": "",
+      "subTopics": [
+        {
+          "name": "AWS Global Infrastructure",
+          "description": "",
+          "subTopics": [
+            {
+              "name": "Region",
+              "description": "Geographical Area"
+            },
+            {
+              "name": "Availability Zone",
+              "description": "2+ per region, Datacenter (one or more), backup, isolated"
+            },
+            {
+              "name": "Edge Location",
+              "description": "Endpoints for Caching content"
+            }
+          ]
+        },
+        {
+          "name": "Compute",
+          "description": "",
+          "subTopics": [
+            {
+              "name": "EC2",
+              "description": "Elastic Compute Cloud, VM in AWS. First service created."
+            },
+            {
+              "name": "Lightsail",
+              "description": "Virtual Private Service. Provisions you with a server. You don’t need to manage security. Watered down version of EC2."
+            },
+            {
+              "name": "Elastic Container Service",
+              "description": "Manage docker containers"
+            },
+            {
+              "name": "Lambda",
+              "description": "Code that you upload and executes in the cloud. Nothing to manage."
+            },
+            {
+              "name": "Batch",
+              "description": "Batch computing."
+            },
+            {
+              "name": "Elastic Beanstalk",
+              "description": "Upload code. Auto scaling, load balancing."
+            }
+          ]
+        },
+        {
+          "name": "Storage",
+          "description": "",
+          "subTopics": [
+            {
+              "name": "S3",
+              "description": "Simple Storage Service. One of the oldest storage services. Files are uploaded to buckets."
+            },
+            {
+              "name": "EFS",
+              "description": "Elastic File System. Network attached storage. Mount to multiple VM."
+            },
+            {
+              "name": "Glacier",
+              "description": "Cheap data archival for infrequent checks."
+            },
+            {
+              "name": "Snowball",
+              "description": "Manual transferring of TB of data."
+            },
+            {
+              "name": "Storage Gateway",
+              "description": "VM that you install in your datacenter or head office and will relay your data to the S3."
+            }
+          ]
+        },
+        {
+          "name": "Databases",
+          "description": "",
+          "subTopics": [
+            {
+              "name": "RDS",
+              "description": "Relation Database Service."
+            },
+            {
+              "name": "DynamoDB",
+              "description": "Non-relational Database."
+            },
+            {
+              "name": "ElastiCache",
+              "description": "Caching commonly queried things, instead of querying the DB."
+            },
+            {
+              "name": "Amazon Redshift",
+              "description": "Data Warehouse or business intelligence."
+            }
+          ]
+        },
+        {
+          "name": "Migration",
+          "description": "",
+          "subTopics": [
+            {
+              "name": "AWS Migration Hub",
+              "description": "Tracking service. Track them as you migrate them."
+            },
+            {
+              "name": "Application Discovery Service",
+              "description": "Automated set of tools. Detects applications and dependencies."
+            },
+            {
+              "name": "Database Migration Service",
+              "description": "Easy way to migrate from on premise to AWS."
+            },
+            {
+              "name": "Server Migration Service",
+              "description": "Easy way to migrate the server. Virtual and physical servers migrate to the cloud."
+            },
+            {
+              "name": "Snowball",
+              "description": "Manual transferring of TB of data."
+            }
+          ]
+        },
+        {
+          "name": "Networking & Content Delivery",
+          "description": "",
+          "subTopics": [
+            {
+              "name": "VPC",
+              "description": "Amazon Virtual Private Cloud. Virtual Datacenter. Configure firewalls, available zones, root tables."
+            },
+            {
+              "name": "CloudFront",
+              "description": "Content delivery network. Allows you to modify your edge location data."
+            },
+            {
+              "name": "Route53",
+              "description": "DNS service."
+            },
+            {
+              "name": "API Gateway",
+              "description": "Create your own API for communication with other services."
+            },
+            {
+              "name": "Direct Connect",
+              "description": "Running a dedicated line from your datacenter to Amazon."
+            }
+          ]
+        },
+        {
+          "name": "Developer Tools",
+          "description": "",
+          "subTopics": [
+            {
+              "name": "CodeStar",
+              "description": "Group of developers. Project management. CI/CD."
+            },
+            {
+              "name": "CodeCommit",
+              "description": "Source control service. Store your code."
+            },
+            {
+              "name": "CodeBuild",
+              "description": "Compiles your code and runs test. Readies code for deployment."
+            },
+            {
+              "name": "CodeDeploy",
+              "description": "To your EC2 instances but also to on premise locations."
+            },
+            {
+              "name": "CodePipeline",
+              "description": "CD service. Model and visualize steps."
+            },
+            {
+              "name": "X-Ray",
+              "description": "Debug serverless application."
+            },
+            {
+              "name": "Cloud9",
+              "description": "IDE. In the browser."
+            }
+          ]
+        },
+        {
+          "name": "Management Tools",
+          "description": "",
+          "subTopics": [
+            {
+              "name": "CloudWatch",
+              "description": "Monitoring Service."
+            },
+            {
+              "name": "CloudFormation",
+              "description": "Solution architecture. Way of scripting infrastructure."
+            },
+            {
+              "name": "CloudTrail",
+              "description": "Logs all changes in AWS environment."
+            },
+            {
+              "name": "Config",
+              "description": "Monitors configuration of entire AWS environment. Snapshots of the whole system."
+            },
+            {
+              "name": "OpsWorks",
+              "description": "Similar to Elastic Beanstalk. Configuration of environments."
+            },
+            {
+              "name": "Service Catalog",
+              "description": "Manage a catalog of IT services. VM images to software DB, multitier architecture. Used by big organization."
+            },
+            {
+              "name": "System Manager",
+              "description": "Interface for managing AWS resources. Patch maintenance. Group resources by departments or applications."
+            },
+            {
+              "name": "Trusted Advisor",
+              "description": "Advice across different disciplines. Tells you how to save money."
+            },
+            {
+              "name": "Managed Services",
+              "description": "Let’s you not worry about EC2 instances and autoscaling."
+            }
+          ]
+        },
+        {
+          "name": "Media Services",
+          "description": "",
+          "subTopics": [
+            {
+              "name": "Elastic Transcoder",
+              "description": "Takes video and resizes it."
+            },
+            {
+              "name": "MediaConvert",
+              "description": "File based video transcoder. VOD for broadcast."
+            },
+            {
+              "name": "MediaLive",
+              "description": "Live video processing services. High quality video streams."
+            },
+            {
+              "name": "MediaPackage",
+              "description": "Prepares and protects your videos."
+            },
+            {
+              "name": "MediaStore",
+              "description": "Storage service optimized for media."
+            },
+            {
+              "name": "MediaTailor",
+              "description": "Targeted advertising into video streams."
+            }
+          ]
+        },
+        {
+          "name": "Machine Learning",
+          "description": "",
+          "subTopics": [
+            {
+              "name": "SageMaker",
+              "description": "Easy use of deep learning."
+            },
+            {
+              "name": "Comprehend",
+              "description": "Sentiment analysis about data."
+            },
+            {
+              "name": "DeepLens",
+              "description": "AI aware camera. Does not require an AWS backend. Physical piece of hardware."
+            },
+            {
+              "name": "Lex",
+              "description": "Powers Alexa. Communicating with customers."
+            },
+            {
+              "name": "Machine Learning",
+              "description": "Deep learning uses neural networks. Machine learning uses datasets."
+            },
+            {
+              "name": "Polly",
+              "description": "Takes text and turns it into speech."
+            },
+            {
+              "name": "Rekognition",
+              "description": "Video and images."
+            },
+            {
+              "name": "Amazon Translate",
+              "description": "Machine translation service."
+            },
+            {
+              "name": "Amazon Transcribe",
+              "description": "Automatic speech recognition."
+            }
+          ]
+        },
+        {
+          "name": "Analytics",
+          "description": "",
+          "subTopics": [
+            {
+              "name": "Athena",
+              "description": "Allows you to run SQL against your buckets. Serverless."
+            },
+            {
+              "name": "EMR",
+              "description": "Elastic Map Reduce. Bigdata solutions. Chops data up for analysis."
+            },
+            {
+              "name": "CloudSearch",
+              "description": "Search services for AWS."
+            },
+            {
+              "name": "ElasticSearch Service",
+              "description": "Search services for AWS."
+            },
+            {
+              "name": "Kinesis",
+              "description": "A way of ingesting large amounts of data into AWS."
+            },
+            {
+              "name": "Kenisis Video Streams",
+              "description": "A way of ingesting large amounts of data into AWS."
+            },
+            {
+              "name": "QuickSight",
+              "description": "Business intelligence tool."
+            },
+            {
+              "name": "Data Pipeline",
+              "description": "Moving data between different AWS."
+            },
+            {
+              "name": "Glue",
+              "description": "Extract Transform Load."
+            }
+          ]
+        },
+        {
+          "name": "Security & Identity & Compliance",
+          "description": "",
+          "subTopics": [
+            {
+              "name": "IAM",
+              "description": "Identity Access Management."
+            },
+            {
+              "name": "Cognito",
+              "description": "Device authentication. Requests temporary access to AWS resources."
+            },
+            {
+              "name": "GuardDuty",
+              "description": "Monitors for malicious activities on your AWS account."
+            },
+            {
+              "name": "Inspector",
+              "description": "Agent that you install on your EC2 instances. You can run test instances on it, or schedule it, to generate reports."
+            },
+            {
+              "name": "Macie",
+              "description": "Scans S3 buckets for private information."
+            },
+            {
+              "name": "Certificate Manager",
+              "description": "SSL for free if you are using Route53 to register your own domains."
+            },
+            {
+              "name": "CloudHSM",
+              "description": "Hardware Security Module. Store your private and public keys. Store encryption keys."
+            },
+            {
+              "name": "Directory Service",
+              "description": "Integrating Microsoft AD services with AWS."
+            },
+            {
+              "name": "WAF",
+              "description": "Web application firewall. Stops SQL injection, cross-side scripting. Looks at the application layer."
+            },
+            {
+              "name": "Shield",
+              "description": "DDOS mitigation."
+            },
+            {
+              "name": "Artifact",
+              "description": "On demand access to AWS compliant reports. Manage select agreements. Service Organization Controls."
+            }
+          ]
+        },
+        {
+          "name": "Mobile Services",
+          "description": "",
+          "subTopics": [
+            {
+              "name": "Mobile Hub",
+              "description": "Management console. Setups your AWS services for you. AWS mobile SDK."
+            },
+            {
+              "name": "Pinpoint",
+              "description": "Targeted push notifications to drive engagement."
+            },
+            {
+              "name": "AWS AppSync",
+              "description": "Automatically updates the data in the web and mobile in real-time, and updates the data for offline users when they reconnect."
+            },
+            {
+              "name": "Device Farm",
+              "description": "Testing apps on live devices."
+            },
+            {
+              "name": "Mobile Analytics",
+              "description": "Analytics service for mobile."
+            }
+          ]
+        },
+        {
+          "name": "AR/VR",
+          "description": "",
+          "subTopics": [
+            {
+              "name": "Sumerian",
+              "description": "First language that was written down. Use for AR, VR and 3D application design. Still in preview."
+            }
+          ]
+        },
+        {
+          "name": "Application Integration",
+          "description": "",
+          "subTopics": [
+            {
+              "name": "Step Functions",
+              "description": "Manage your Lambda functions."
+            },
+            {
+              "name": "Amazon MQ",
+              "description": "Message queues."
+            },
+            {
+              "name": "SNS",
+              "description": "Notification service."
+            },
+            {
+              "name": "SQS",
+              "description": "Decouples your infrastructures. Holds your information in a queue. Older service."
+            },
+            {
+              "name": "SWF",
+              "description": "Simple Workflow Service."
+            }
+          ]
+        },
+        {
+          "name": "Customer Engagement",
+          "description": "",
+          "subTopics": [
+            {
+              "name": "Connect",
+              "description": "Contact center as a service."
+            },
+            {
+              "name": "Simple Email Service",
+              "description": "Sending large amounts of emails."
+            }
+          ]
+        },
+        {
+          "name": "Business Productivity",
+          "description": "",
+          "subTopics": [
+            {
+              "name": "Alexa For Business",
+              "description": "Use to dial it for meeting room, reorder ink, contact IT if printer is broken."
+            },
+            {
+              "name": "Chime",
+              "description": "Google hangouts. Video conferencing, with recording."
+            },
+            {
+              "name": "Work Docs",
+              "description": "Dropbox for AWS."
+            },
+            {
+              "name": "WorkMail",
+              "description": "Office 365."
+            }
+          ]
+        },
+        {
+          "name": "Desktop & App Streaming",
+          "description": "",
+          "subTopics": [
+            {
+              "name": "Workspaces",
+              "description": "VDI Virual Desktop Infrastructure solution. Stream OS."
+            },
+            {
+              "name": "AppStream 2.0",
+              "description": "Application is running in the environment but it is being streamed to your environment. Like Citrix."
+            }
+          ]
+        },
+        {
+          "name": "Internet Of Things",
+          "description": "",
+          "subTopics": [
+            {
+              "name": "iOT",
+              "description": "Core internet of things service."
+            },
+            {
+              "name": "iOT Device Management",
+              "description": "Manages large numbers of devices."
+            },
+            {
+              "name": "Amazon FreeRTOS",
+              "description": "OS for microcontrollers."
+            },
+            {
+              "name": "Greengrass",
+              "description": "Software that runs local compute, data caching and machine learning."
+            }
+          ]
+        },
+        {
+          "name": "Game Development",
+          "description": "",
+          "subTopics": [
+            {
+              "name": "GameLift",
+              "description": "Service for development of games."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "Paradajz Corba",
       "description": "120.0"
     },
