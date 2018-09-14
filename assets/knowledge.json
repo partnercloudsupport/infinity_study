@@ -52,18 +52,18 @@
           "name": "Hot Reload",
           "description": "Flutter’s hot reload feature helps you quickly and easily experiment, build UIs, add features, and fix bugs. Hot reload works by injecting updated source code files into the running Dart Virtual Machine (VM). After the VM updates classes with the new versions of fields and functions, the Flutter framework automatically rebuilds the widget tree, allowing you to quickly view the effects of your changes.",
           "subTopics": [
-                {
-                  "name": "Previous state is combined with new code",
-                  "description": "Flutter’s hot reload feature, sometimes described as stateful hot reload, preserves the state of your app. This design enables you to view the effect of the most recent change only, without throwing away the current state. For example, if your app requires a user to log in, you can modify and hot reload a page several levels down in the navigation hierarchy, without re-entering your login credentials. State is kept, which is usually the desired behavior. If code changes affect the state of your app (or its dependencies), the data your app has to work with might not be fully consistent with the data it would have if it executed from scratch. The result might be different behavior after hot reload versus a hot restart. For example, if you modify a class definition from extending StatelessWidget to StatefulWidget (or the reverse), after hot reload the previous state of your app is preserved. However, the state might not be compatible with the new changes."
-                },
-                {
-                  "name": "Recent code change is included but app state is excluded",
-                  "description": "In Dart, static fields are lazily initialized. This means that the first time you run a Flutter app and a static field is read, it is set to whatever value its initializer was evaluated to. Global variables and static fields are treated as state, and thus not reinitialized during hot reload. If you change initializers of global variables and static fields, a full restart is necessary to see the changes."
-                },
-                {
-                  "name": "How it works",
-                  "description": "When hot reload is invoked, the host machine looks at the edited code since the last compilation. The following libraries are recompiled: Any libraries with changed code. The application’s main library. The libraries from the main library leading to affected libraries. In Dart 2, those libraries’ Dart source code are turned into kernel files and sent to the mobile device’s Dart VM. The Dart VM re-loads all libraries from the new kernel file. So far no code is re-executed. The hot reload mechanism then causes the Flutter framework to trigger a rebuild/re-layout/repaint of all existing widgets and render objects."
-                }
+            {
+              "name": "Previous state is combined with new code",
+              "description": "Flutter’s hot reload feature, sometimes described as stateful hot reload, preserves the state of your app. This design enables you to view the effect of the most recent change only, without throwing away the current state. For example, if your app requires a user to log in, you can modify and hot reload a page several levels down in the navigation hierarchy, without re-entering your login credentials. State is kept, which is usually the desired behavior. If code changes affect the state of your app (or its dependencies), the data your app has to work with might not be fully consistent with the data it would have if it executed from scratch. The result might be different behavior after hot reload versus a hot restart. For example, if you modify a class definition from extending StatelessWidget to StatefulWidget (or the reverse), after hot reload the previous state of your app is preserved. However, the state might not be compatible with the new changes."
+            },
+            {
+              "name": "Recent code change is included but app state is excluded",
+              "description": "In Dart, static fields are lazily initialized. This means that the first time you run a Flutter app and a static field is read, it is set to whatever value its initializer was evaluated to. Global variables and static fields are treated as state, and thus not reinitialized during hot reload. If you change initializers of global variables and static fields, a full restart is necessary to see the changes."
+            },
+            {
+              "name": "How it works",
+              "description": "When hot reload is invoked, the host machine looks at the edited code since the last compilation. The following libraries are recompiled: Any libraries with changed code. The application’s main library. The libraries from the main library leading to affected libraries. In Dart 2, those libraries’ Dart source code are turned into kernel files and sent to the mobile device’s Dart VM. The Dart VM re-loads all libraries from the new kernel file. So far no code is re-executed. The hot reload mechanism then causes the Flutter framework to trigger a rebuild/re-layout/repaint of all existing widgets and render objects."
+            }
           ]
         }
       ]
@@ -88,7 +88,7 @@
           "question": "What is Unmanaged Code?",
           "answer": "Applications that do not run under the control of the CLR are said to be unmanaged, and certain languages such as C++ can be used to write such applications, which, for example, access low - level functions of the operating system. Background compatibility with the code of VB, ASP and COM are examples of unmanaged code"
         }
-        ],
+      ],
       "subTopics": [
         {
           "name": "Basis",
@@ -102,11 +102,131 @@
     },
     {
       "name": "AWS",
-      "description": "",
+      "questions": [
+        {
+          "question": "An AWS VPC is a component of which group of AWS services?",
+          "answer": "Networking Services. A Virtual Private Cloud (VPC) is a virtual network dedicated to a single AWS account. It is logically isolated from other virtual networks in the AWS cloud, providing compute resources with security and robust networking functionality."
+        },
+        {
+          "question": "You need to monitor the performance of your EC2 instances (including metrics such as CPU Utilization, Disk IO, etc.) Which service would best meet this requirement?",
+          "answer": "CloudWatch. CloudTrail logs who asked for what in the API, and CloudWatch tracks metrics and related performance events."
+        },
+        {
+          "question": "Which statement best describes Availability Zones?",
+          "answer": "Distinct locations from within an AWS region that are engineered to be isolated from failures."
+        },
+        {
+          "question": "What is an Amazon VPC?",
+          "answer": "VPC stands for Virtual Private Cloud."
+        },
+        {
+          "question": "Which AWS service is used for collating large amounts of data streamed from multiple sources?",
+          "answer": "Amazon Kinesis is used to collect, process, and analyze real-time, streaming data."
+        },
+        {
+          "question": "Your company is interested in implementing a VDI solution to replace their local desktop environment. Which AWS service should you consider?",
+          "answer": "Amazon WorkSpaces is a fully managed, secure Desktop-as-a-Service (DaaS) solution that runs on AWS."
+        },
+        {
+          "question": "Which AWS service offers durable storage for flat files?",
+          "answer": "S3 is object storage built to store and retrieve any amount of data from anywhere – web sites and mobile apps, corporate applications, and data from IoT sensors or devices."
+        },
+        {
+          "question": "Which AWS service allows you to run code without having to worry about provisioning any underlying resources (such as virtual machines, databases etc.)",
+          "answer": "Lambda is the AWS Function-as-a-Service (FaaS) offering that lets you run code without provisioning or managing servers."
+        },
+        {
+          "question": "Which of the following services connects an on-premise software appliance (or virtual machine) with cloud based storage?",
+          "answer": "AWS Storage Gateway is a hybrid storage service that enables your on-premises applications to seamlessly use storage in the AWS Cloud."
+        },
+        {
+          "question": "Your digital media agency needs to convert its media files to formats that can be viewed on a variety of devices. Which AWS service should you use to meet this need?",
+          "answer": "Elastic Transcoder"
+        },
+        {
+          "question": "Which AWS service is effectively a NAS in the cloud, allowing you to connect it to multiple EC2 instances at once?",
+          "answer": "Amazon EFS (Elastic File System) provides simple, scalable file storage for use with Amazon EC2 instances."
+        },
+        {
+          "question": "Amazon's highly scalable DNS service is known as ________.",
+          "answer": "Route53 is AWS' DNS service. The name is a portmanteau of Route 66, an American highway, and 53, the port used for DNS."
+        },
+        {
+          "question": "You need to add new users to your AWS account and set password rotation policies for these new users. Which AWS service should you use to do so?",
+          "answer": "Identity Access Management (IAM)"
+        },
+        {
+          "question": "Which AWS service is a Content Delivery Network?",
+          "answer": "CloudFront is AWS' content delivery network."
+        },
+        {
+          "question": "What is the fundamental difference between Elastic Beanstalk & CloudFormation?",
+          "answer": "Elastic Beanstalk automatically handles the deployment of your code -- from capacity provisioning, load balancing, auto-scaling to application health monitoring -- based on the code you upload to it, whereas CloudFormation is an automated provisioning engine designed to deploy entire cloud environments via a JSON script."
+        },
+        {
+          "question": "You need to supply auditors with logs showing which Users provisioned given resources on your AWS infrastructure. Which service would best satisfy this need?",
+          "answer": "AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account."
+        },
+        {
+          "question": "Which of the following is a petabyte-scale data transfer solution?",
+          "answer": "Snowball is a petabyte-scale data transport solution that uses secure appliances to transfer large amounts of data into and out of the AWS cloud."
+        },
+        {
+          "question": "What does an AWS Region consist of?",
+          "answer": "A distinct location within a geographic area designed to provide high availability to a specific geography. Each region is a separate geographic area. Each region has multiple, isolated locations known as Availability Zones."
+        },
+        {
+          "question": "Which of the following is Amazon's No-SQL database service?",
+          "answer": "DynamoDB is AWS' No-SQL database service."
+        },
+        {
+          "question": "Which AWS service is specifically designed to automatically provision the resources required to host the code a developer uploads during the Development process?",
+          "answer": "Elastic Beanstalk"
+        },
+        {
+          "question": "Which AWS service is specifically designed to assist you in processing large data sets?",
+          "answer": "Amazon EMR is a web service that makes it easy to process large amounts of data efficiently."
+        },
+        {
+          "question": "Which AWS service would be the best choice for long term data archival?",
+          "answer": "Glacier"
+        },
+        {
+          "question": "What AWS service would you use primarily for data warehousing?",
+          "answer": "Redshift"
+        },
+        {
+          "question": "What is an AWS region?",
+          "answer": "A region is a geographical area divided into Availability Zones. Each region contains at least two Availability Zones."
+        },
+        {
+          "question": "Your system administrators need to receive notification of specified events affecting your AWS environment (such as alarms, etc.) Which service should you enable?",
+          "answer": "SNS"
+        },
+        {
+          "question": "You need a service that will aggregate your data from multiple data sources (S3, DynamoDB, RDS, etc.) and provide business intelligence based on this data. Which AWS service should you use?",
+          "answer": "Amazon QuickSight is a fast, cloud-powered business analytics service that makes it easy to build visualizations, perform ad-hoc analysis, and quickly get business insights from your data."
+        },
+        {
+          "question": "Which database service would you use to migrate a database from Oracle to MySQL?",
+          "answer": "AWS Database Migration Service (DMS) can migrate your data to and from most widely used commercial and open-source databases such as Oracle, PostgreSQL, Microsoft SQL Server, Amazon Redshift, Amazon Aurora, Amazon DynamoDB, Amazon S3, MariaDB, and MySQL."
+        },
+        {
+          "question": "Which AWS service offers the following database engines: SQL, MySQL, MariaDB, PostgreSQL, Aurora, and Oracle?",
+          "answer": "Amazon RDS offer those database engines as a managed service."
+        },
+        {
+          "question": "You need a configuration management service that will allow your system administrators to use Chef to configure and operate your web applications. Which AWS service would best suit your needs?",
+          "answer": "AWS OpsWorks is a configuration management service that uses Chef, an automation platform that treats server configurations as code."
+        },
+        {
+          "question": "You need to implement an automated service that will scan your AWS environment with the goal of both improving security and reducing costs. Which service should you use?",
+          "answer": "Trusted Advisor"
+        }
+      ],
       "subTopics": [
         {
           "name": "AWS Global Infrastructure",
-          "description": "",
           "subTopics": [
             {
               "name": "Region",
@@ -120,133 +240,10 @@
               "name": "Edge Location",
               "description": "Endpoints for Caching content"
             }
-          ],
-          "questions": [
-            {
-              "question": "An AWS VPC is a component of which group of AWS services?",
-              "answer": "Networking Services. A Virtual Private Cloud (VPC) is a virtual network dedicated to a single AWS account. It is logically isolated from other virtual networks in the AWS cloud, providing compute resources with security and robust networking functionality."
-            },
-            {
-              "question": "You need to monitor the performance of your EC2 instances (including metrics such as CPU Utilization, Disk IO, etc.) Which service would best meet this requirement?",
-              "answer": "CloudWatch. CloudTrail logs who asked for what in the API, and CloudWatch tracks metrics and related performance events."
-            },
-            {
-              "question": "Which statement best describes Availability Zones?",
-              "answer": "Distinct locations from within an AWS region that are engineered to be isolated from failures."
-            },
-            {
-              "question": "What is an Amazon VPC?",
-              "answer": "VPC stands for Virtual Private Cloud."
-            },
-            {
-              "question": "Which AWS service is used for collating large amounts of data streamed from multiple sources?",
-              "answer": "Amazon Kinesis is used to collect, process, and analyze real-time, streaming data."
-            },
-            {
-              "question": "Your company is interested in implementing a VDI solution to replace their local desktop environment. Which AWS service should you consider?",
-              "answer": "Amazon WorkSpaces is a fully managed, secure Desktop-as-a-Service (DaaS) solution that runs on AWS."
-            },
-            {
-              "question": "Which AWS service offers durable storage for flat files?",
-              "answer": "S3 is object storage built to store and retrieve any amount of data from anywhere – web sites and mobile apps, corporate applications, and data from IoT sensors or devices."
-            },
-            {
-              "question": "Which AWS service allows you to run code without having to worry about provisioning any underlying resources (such as virtual machines, databases etc.)",
-              "answer": "Lambda is the AWS Function-as-a-Service (FaaS) offering that lets you run code without provisioning or managing servers."
-            },
-            {
-              "question": "Which of the following services connects an on-premise software appliance (or virtual machine) with cloud based storage?",
-              "answer": "AWS Storage Gateway is a hybrid storage service that enables your on-premises applications to seamlessly use storage in the AWS Cloud."
-            },
-            {
-              "question": "Your digital media agency needs to convert its media files to formats that can be viewed on a variety of devices. Which AWS service should you use to meet this need?",
-              "answer": "Elastic Transcoder"
-            },
-            {
-              "question": "Which AWS service is effectively a NAS in the cloud, allowing you to connect it to multiple EC2 instances at once?",
-              "answer": "Amazon EFS (Elastic File System) provides simple, scalable file storage for use with Amazon EC2 instances."
-            },
-            {
-              "question": "Amazon's highly scalable DNS service is known as ________.",
-              "answer": "Route53 is AWS' DNS service. The name is a portmanteau of Route 66, an American highway, and 53, the port used for DNS."
-            },
-            {
-              "question": "You need to add new users to your AWS account and set password rotation policies for these new users. Which AWS service should you use to do so?",
-              "answer": "Identity Access Management (IAM)"
-            },
-            {
-              "question": "Which AWS service is a Content Delivery Network?",
-              "answer": "CloudFront is AWS' content delivery network."
-            },
-            {
-              "question": "What is the fundamental difference between Elastic Beanstalk & CloudFormation?",
-              "answer": "Elastic Beanstalk automatically handles the deployment of your code -- from capacity provisioning, load balancing, auto-scaling to application health monitoring -- based on the code you upload to it, whereas CloudFormation is an automated provisioning engine designed to deploy entire cloud environments via a JSON script."
-            },
-            {
-              "question": "You need to supply auditors with logs showing which Users provisioned given resources on your AWS infrastructure. Which service would best satisfy this need?",
-              "answer": "AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account."
-            },
-            {
-              "question": "Which of the following is a petabyte-scale data transfer solution?",
-              "answer": "Snowball is a petabyte-scale data transport solution that uses secure appliances to transfer large amounts of data into and out of the AWS cloud."
-            },
-            {
-              "question": "What does an AWS Region consist of?",
-              "answer": "A distinct location within a geographic area designed to provide high availability to a specific geography. Each region is a separate geographic area. Each region has multiple, isolated locations known as Availability Zones."
-            },
-            {
-              "question": "Which of the following is Amazon's No-SQL database service?",
-              "answer": "DynamoDB is AWS' No-SQL database service."
-            },
-            {
-              "question": "Which AWS service is specifically designed to automatically provision the resources required to host the code a developer uploads during the Development process?",
-              "answer": "Elastic Beanstalk"
-            },
-            {
-              "question": "Which AWS service is specifically designed to assist you in processing large data sets?",
-              "answer": "Amazon EMR is a web service that makes it easy to process large amounts of data efficiently."
-            },
-            {
-              "question": "Which AWS service would be the best choice for long term data archival?",
-              "answer": "Glacier"
-            },
-            {
-              "question": "What AWS service would you use primarily for data warehousing?",
-              "answer": "Redshift"
-            },
-            {
-              "question": "What is an AWS region?",
-              "answer": "A region is a geographical area divided into Availability Zones. Each region contains at least two Availability Zones."
-            },
-            {
-              "question": "Your system administrators need to receive notification of specified events affecting your AWS environment (such as alarms, etc.) Which service should you enable?",
-              "answer": "SNS"
-            },
-            {
-              "question": "You need a service that will aggregate your data from multiple data sources (S3, DynamoDB, RDS, etc.) and provide business intelligence based on this data. Which AWS service should you use?",
-              "answer": "Amazon QuickSight is a fast, cloud-powered business analytics service that makes it easy to build visualizations, perform ad-hoc analysis, and quickly get business insights from your data."
-            },
-            {
-              "question": "Which database service would you use to migrate a database from Oracle to MySQL?",
-              "answer": "AWS Database Migration Service (DMS) can migrate your data to and from most widely used commercial and open-source databases such as Oracle, PostgreSQL, Microsoft SQL Server, Amazon Redshift, Amazon Aurora, Amazon DynamoDB, Amazon S3, MariaDB, and MySQL."
-            },
-            {
-              "question": "Which AWS service offers the following database engines: SQL, MySQL, MariaDB, PostgreSQL, Aurora, and Oracle?",
-              "answer": "Amazon RDS offer those database engines as a managed service."
-            },
-            {
-              "question": "You need a configuration management service that will allow your system administrators to use Chef to configure and operate your web applications. Which AWS service would best suit your needs?",
-              "answer": "AWS OpsWorks is a configuration management service that uses Chef, an automation platform that treats server configurations as code."
-            },
-            {
-              "question": "You need to implement an automated service that will scan your AWS environment with the goal of both improving security and reducing costs. Which service should you use?",
-              "answer": "Trusted Advisor"
-            }
           ]
         },
         {
           "name": "Compute",
-          "description": "",
           "subTopics": [
             {
               "name": "EC2",
@@ -276,7 +273,6 @@
         },
         {
           "name": "Storage",
-          "description": "",
           "subTopics": [
             {
               "name": "S3",
@@ -302,7 +298,6 @@
         },
         {
           "name": "Databases",
-          "description": "",
           "subTopics": [
             {
               "name": "RDS",
@@ -324,7 +319,6 @@
         },
         {
           "name": "Migration",
-          "description": "",
           "subTopics": [
             {
               "name": "AWS Migration Hub",
@@ -350,7 +344,6 @@
         },
         {
           "name": "Networking & Content Delivery",
-          "description": "",
           "subTopics": [
             {
               "name": "VPC",
@@ -376,7 +369,6 @@
         },
         {
           "name": "Developer Tools",
-          "description": "",
           "subTopics": [
             {
               "name": "CodeStar",
@@ -410,7 +402,6 @@
         },
         {
           "name": "Management Tools",
-          "description": "",
           "subTopics": [
             {
               "name": "CloudWatch",
@@ -452,7 +443,6 @@
         },
         {
           "name": "Media Services",
-          "description": "",
           "subTopics": [
             {
               "name": "Elastic Transcoder",
@@ -482,7 +472,6 @@
         },
         {
           "name": "Machine Learning",
-          "description": "",
           "subTopics": [
             {
               "name": "SageMaker",
@@ -524,7 +513,6 @@
         },
         {
           "name": "Analytics",
-          "description": "",
           "subTopics": [
             {
               "name": "Athena",
@@ -566,7 +554,6 @@
         },
         {
           "name": "Security & Identity & Compliance",
-          "description": "",
           "subTopics": [
             {
               "name": "IAM",
@@ -574,7 +561,6 @@
               "subTopics": [
                 {
                   "name": "Core functions",
-                  "description": "",
                   "subTopics": [
                     {
                       "name": "Centralized control of your AWS account",
@@ -616,7 +602,6 @@
                 },
                 {
                   "name": "Terms",
-                  "description": "",
                   "subTopics": [
                     {
                       "name": "User",
@@ -638,7 +623,6 @@
                 },
                 {
                   "name": "Access Types",
-                  "description": "",
                   "subTopics": [
                     {
                       "name": "Management Console",
@@ -774,7 +758,6 @@
         },
         {
           "name": "Mobile Services",
-          "description": "",
           "subTopics": [
             {
               "name": "Mobile Hub",
@@ -800,7 +783,6 @@
         },
         {
           "name": "AR/VR",
-          "description": "",
           "subTopics": [
             {
               "name": "Sumerian",
@@ -810,7 +792,6 @@
         },
         {
           "name": "Application Integration",
-          "description": "",
           "subTopics": [
             {
               "name": "Step Functions",
@@ -836,7 +817,6 @@
         },
         {
           "name": "Customer Engagement",
-          "description": "",
           "subTopics": [
             {
               "name": "Connect",
@@ -850,7 +830,6 @@
         },
         {
           "name": "Business Productivity",
-          "description": "",
           "subTopics": [
             {
               "name": "Alexa For Business",
@@ -872,7 +851,6 @@
         },
         {
           "name": "Desktop & App Streaming",
-          "description": "",
           "subTopics": [
             {
               "name": "Workspaces",
@@ -886,7 +864,6 @@
         },
         {
           "name": "Internet Of Things",
-          "description": "",
           "subTopics": [
             {
               "name": "IoT Core",
@@ -908,7 +885,6 @@
         },
         {
           "name": "Game Development",
-          "description": "",
           "subTopics": [
             {
               "name": "Amazon GameLift",
